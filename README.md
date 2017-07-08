@@ -5,7 +5,7 @@ Demonstrates a simple user authentication using Redux - the most popular state m
 https://expo.io/@carlofontanos/react-redux-basic-example
 
 ### Live Demo:
-![alt text](https://raw.githubusercontent.com/carlo-fontanos/react-redux-basic-example/demo.gif)
+![alt text](https://github.com/carlo-fontanos/react-redux-basic-example/blob/master/demo.gif)
 
 ### Includes:
 - Very basic implementation of Redux
