@@ -1,5 +1,5 @@
 {
-  "name": "redux-basic-example",
+  "name": "react-redux-basic-example",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
