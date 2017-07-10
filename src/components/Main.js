@@ -5,9 +5,16 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>Open up App.js to start working on your app!</Text>
-				<Text>Changes you make will automatically reload.</Text>
-				<Text>Shake your phone to open the developer menu.</Text>
+				<View style={styles.navBar}>
+					<Text style={styles.navBarButton}>Back</Text>
+					<Text style={styles.navBarHeader}>Awesome App</Text>
+					<Text style={styles.navBarButton}>More</Text>
+				</View>
+				<View style={styles.content}>
+					<Text style={styles.text}>
+						Welcome to Awesome App!
+					</Text>
+				</View>
 			</View>
 		);
 	}
@@ -16,8 +23,32 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
+		backgroundColor: '#fff'
+	},
+	navBar: {
+		flexDirection: 'row',
+		paddingTop: 30,
+		height: 64,
+		backgroundColor: '#1EAAF1'
+	},
+	navBarButton: {
+		color: '#FFFFFF',
+		textAlign:'center',
+		width: 64
+	},
+	navBarHeader: {
+		flex: 1,
+		color: '#FFFFFF',
+		fontWeight: 'bold',
+		textAlign: 'center'
+	},
+	content: {
+		flex: 1,
 		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#374046'
+	},
+	text: {
+		color: '#EEEEEE'
 	},
 });
