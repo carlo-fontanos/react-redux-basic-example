@@ -3,7 +3,7 @@ Demonstrates a simple user authentication using Redux - the most popular state m
 
 ### Includes:
 - Very basic implementation of Redux
-- `AsyncStorage` for persistent login
+- Persistent login using `AsyncStorage`
 - Simple login and logout functionality
 - Integration of Redux to a [CRNA template](https://github.com/react-community/create-react-native-app)
 
