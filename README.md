@@ -1,6 +1,9 @@
 # React Redux Basic Example
 Demonstrates a simple user authentication using Redux - the most popular state management module.
 
+### Demo using Expo:
+https://expo.io/@carlofontanos/react-redux-basic-example
+
 ### Includes:
 - Very basic implementation of Redux
 - Persistent login using `AsyncStorage`
