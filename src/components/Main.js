@@ -46,6 +46,9 @@ export default class App extends React.Component {
 					}
 					{isLoggedIn && 
 						<View>
+							<Text style={{ fontSize: 20 }}>Premium content goes here</Text>
+							<Text style={{ marginBottom: 15 }}>Lorem ipsum dolor sit amet, ac urna eget, fermentum velit dis sit mauris metus, rutrum sodales ut lorem, risus lectus aenean consequatur nulla ratione rhoncus. Ac tempus, sed rerum, leo felis mattis mauris taciti culpa sodales.</Text>
+							<Text style={{ marginBottom: 25 }}>Donec donec amet nunc, orci porta gravida ipsum. Wisi viverra ac eu, ullamcorper proin massa nec egestas hendrerit per. Volutpat nulla nulla ligula dis auctor aliquam, in sit sit et eu ligula dolor.</Text>
 							<Button title="Logout" onPress={() => this.props.log_out()}/>
 						</View>
 					}
