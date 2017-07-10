@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 
 export default class App extends React.Component {
 	render() {
@@ -23,13 +23,14 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
+		paddingTop: StatusBar.currentHeight
 	},
 	navBar: {
 		flexDirection: 'row',
-		paddingTop: 30,
+		paddingTop: 25,
 		height: 64,
-		backgroundColor: '#1EAAF1'
+		backgroundColor: '#1EAAF1',
 	},
 	navBarButton: {
 		color: '#FFFFFF',
