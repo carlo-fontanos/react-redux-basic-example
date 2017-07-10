@@ -9,7 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case 'LOG_IN':
-			/* Map variables from action.data then explode keys for easier access to data. (ES6 patter) */
+			/* Map variables from action.data then explode keys for easier access to data. (ES6 pattern) */
 			let {authToken, id, name} = action.data;
 			
 			/* Set the new state */

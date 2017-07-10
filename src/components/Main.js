@@ -1,10 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Button, TextInput } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, StatusBar, Button, TextInput } from 'react-native';
 
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {}
+	}
+	
+	async componentWillMount() {
+		/* Check storage if user was previously logged-in to the device */
+		await AsyncStorage.getItem('user')
+			.then(req => JSON.parse(req))
+			.then((data) => {
+				/* Set state of the user who was previously logged-in */
+				if(data){
+					this.props.log_in(data);
+					console.log(data);
+				}
+			}
+		);
 	}
 	
 	render() {
@@ -35,11 +49,7 @@ export default class App extends React.Component {
 							/>
 							<Button title="Login" onPress={() => {
 								if(this.state.username && this.state.password){
-									this.props.log_in({
-										authToken: 'fgh8F8ffFj43gghe3FJFFJE4ff9fd9',
-										id: 101,
-										name: this.state.username
-									});
+									this.doLogin(this.state.username, this.state.username);
 								}
 							}}/>
 						</View>
@@ -49,7 +59,7 @@ export default class App extends React.Component {
 							<Text style={{ fontSize: 20 }}>Premium content goes here</Text>
 							<Text style={{ marginBottom: 15 }}>Lorem ipsum dolor sit amet, ac urna eget, fermentum velit dis sit mauris metus, rutrum sodales ut lorem, risus lectus aenean consequatur nulla ratione rhoncus. Ac tempus, sed rerum, leo felis mattis mauris taciti culpa sodales.</Text>
 							<Text style={{ marginBottom: 25 }}>Donec donec amet nunc, orci porta gravida ipsum. Wisi viverra ac eu, ullamcorper proin massa nec egestas hendrerit per. Volutpat nulla nulla ligula dis auctor aliquam, in sit sit et eu ligula dolor.</Text>
-							<Button title="Logout" onPress={() => this.props.log_out()}/>
+							<Button title="Logout" onPress={() => this.doLogout()}/>
 						</View>
 					}
 				</View>
@@ -57,8 +67,28 @@ export default class App extends React.Component {
 		);
 	}
 	
-	submit(){
+	async doLogout(){
+		/* Remove user creds storage */
+		await AsyncStorage.removeItem('user');
+		/* Update store */
+		this.props.log_out()
+	}
+	
+	async doLogin(un, ps){
+		// Do server authentication check here
+		// let userCreds await serverAuthCheck(un, ps);
 		
+		let userCreds = {
+			isLoggedIn: true,
+			authToken: 'fgh8F8ffFj43gghe3FJFFJE4ff9fd9', // response from server
+			id: 101, // response from server
+			name: un
+		}
+		
+		/* Update store */
+		this.props.log_in(userCreds);
+		/* Save to storage */
+		await AsyncStorage.setItem('user', JSON.stringify(userCreds));
 	}
 }
 
